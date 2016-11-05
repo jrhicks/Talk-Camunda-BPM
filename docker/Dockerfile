@@ -32,7 +32,7 @@ ADD bin/* /usr/local/bin/
 
 EXPOSE 8080
 
-ADD conf/tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
+ADD bin/tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
 ADD bin/setenv.sh /camunda/bin/setenv.sh
 
 CMD ["/usr/local/bin/configure-and-run.sh"]
