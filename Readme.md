@@ -18,6 +18,9 @@ Learn to run and deploy process applications to Tomcat with a shared camunda pro
 
 [   ] Have the deployed application successfully start
 
+  * 05-Nov-2016 14:36:57.745 SEVERE [http-nio-8080-exec-1] org.springframework.web.context.ContextLoader.initWebApplicationContext Context initialization failed
+ org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [org.camunda.bpm.engine.spring.application.SpringServletProcessApplication] for bean with name 'processApplication' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: org.camunda.bpm.engine.spring.application.SpringServletProcessApplication
+
 [   ] Access the process through the user TaskList web application
 
 [   ] Access the process through the rest api
