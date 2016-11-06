@@ -22,7 +22,7 @@ RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" > /e
     apt-get clean && \
     rm -rf /var/cache/* /var/lib/apt/lists/*
 
-ADD camunda /camunda
+ADD tomcat-server /camunda
 
 # add scripts
 ADD bin/* /usr/local/bin/
