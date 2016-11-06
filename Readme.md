@@ -1,62 +1,37 @@
-# Shared, Container-Managed Process Engine Example
+# Camunda Shared Engine and Process Application Deployment Lab
 
-Learn to run and deploy process applications to Tomcat with a shared camunda process engine as depicted in the preferred Camunda architecture below:
+<img src="overview.png">
 
-<img src="shared-process-engine.png">
+## Goal
 
-## Goals
+1) Run a Tomcat server with a shared process engine and some general camunda apps that can be used for any process.
 
-[ x ] Install Camunda On Vanilla Tomcat using Shared Engine Configuration
+2) Setup a maven project that can build and deploy a camunda process.
 
-[ x ] Configure Tomcat manager to accept deployments
+3) Deploy the camunda process
 
-[ x ] Install Rest API application with Basic HTTP Authentication
+## Run Tomcat Server
 
-[ x ] Setup an example Spring Project for a camunda process for deployment to a Shared Engine Configuration running on Tomcat using the Maven deploy plugin
+Docker is used to build a Tomcat server with system dependencies, general camunda web applications, and configurations useful for this lab.
 
-[ x ] Successfully deploy
+```
+cd tomcat-server
+docker build . -t camunda
+docker run -p 8080:8080 camunda
+```
 
-[   ] Have the deployed application successfully start
+## Setup Maven Project (Eclipse Option)
 
-  * 05-Nov-2016 14:36:57.745 SEVERE [http-nio-8080-exec-1] org.springframework.web.context.ContextLoader.initWebApplicationContext Context initialization failed
- org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [org.camunda.bpm.engine.spring.application.SpringServletProcessApplication] for bean with name 'processApplication' defined in ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.lang.ClassNotFoundException: org.camunda.bpm.engine.spring.application.SpringServletProcessApplication
+1) Create project in Eclipse
 
-[   ] Access the process through the user TaskList web application
+2) Configure Builds: add tomcat7:deploy
 
-[   ] Access the process through the rest api
+3) Run build
 
+## See Results
 
-## Resources
+1) open http://localhost:8080/camunda
 
-* https://docs.camunda.org/manual/7.5/installation/full/tomcat/manual/ - Manual Install Camunda on Tomcat
+2) Create User
 
-* https://docs.camunda.org/get-started/spring/shared-process-engine/ - Setting up a process to deploy to a Tomcat w/ shared Process Engine
-
-* https://docs.camunda.org/manual/7.5/user-guide/process-engine/process-engine-bootstrapping/#shared-container-managed-process-engine - Setting up a Tomcat w/ shared Process Engine
-
-
-## Docker Folder
-
-1) Docker folder contains a camunda folder where the instructions for Installing a shared camunda engine on a vanilla Tomcat were followed.
-
-2) Conf folder has tomcat-users.xml which will be copied into place on docker build to enable Tomcat manager access
-
-3) Dockerfile - Docker build
-
-* cd docker
-
-* docker build . -t camunda
-
-* docker run -p 8080:8080 camunda
-
-### Open Camunda Webapp to Be Prompted to create User
-
-http://localhost:8080/camunda
-
-### If things are working right the following should return some JSON
-
-curl -X GET -H "Accept: application/hal+json" -H "Cache-Control: no-cache"  "http://admin:password@localhost:8080/engine-rest/task"
-
-## loanapproval-spring
-
-* A maven project for a loan application business process setup to deploy to Tomcat server.
+3) Start a Process
