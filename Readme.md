@@ -4,11 +4,13 @@
 
 ## Goal
 
-1) Run a Tomcat server with a shared process engine and some general camunda apps that can be used for any process.
+1) Run a Tomcat server which is setup for the "Camunda shared-engine architecture"(https://docs.camunda.org/manual/7.4/introduction/architecture/#shared-container-managed-process-engine)
 
-2) Setup a maven project that can build and deploy a camunda process.
+2) Build and deploy a process application from the "Maven Archetypes for Process Application (Servlet WAR)"(https://docs.camunda.org/manual/7.4/user-guide/process-applications/maven-archetypes/)
 
-3) Deploy the camunda process
+3) Setup a development environment in Eclipse for building and deploying proces applications.
+
+4) Create
 
 ## Run Tomcat Server
 
@@ -20,18 +22,44 @@ docker build . -t camunda
 docker run -p 8080:8080 camunda
 ```
 
-## Setup Maven Project (Eclipse Option)
+## Build & Deploy Process Application (Docker Option)
 
-1) Create project in Eclipse
+1) Build and Deploy
 
-2) Configure Builds: add tomcat7:deploy
+```
+cd process-maven-projects/monthly-meetup
 
-3) Run build
+docker run -it --rm \
+       -v "$(pwd)":/opt/maven \
+       -w /opt/maven \
+       --net="host" \
+       maven:3.2-jdk-8 \
+       mvn -s settings.xml clean tomcat7:deploy
+```
 
-## See Results
+2) Confirm Deployment
 
-1) open http://localhost:8080/camunda
+* open http://localhost:8080
 
-2) Create User
+* create user
 
-3) Start a Process
+* Login -> Start Process :)
+
+3) Clean up
+
+```
+docker run -it --rm \
+       -v "$(pwd)":/opt/maven \
+       -w /opt/maven \
+       --net="host" \
+       maven:3.2-jdk-8 \
+       mvn -s settings.xml clean
+```
+
+## Build & Deploy Process Application (Eclipse Option)
+
+* Install Eclipse
+
+* Install Java 8
+
+* .... to be continued
