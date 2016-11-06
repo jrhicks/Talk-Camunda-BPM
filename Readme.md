@@ -41,7 +41,7 @@ Confirm Deployment by opening [http://localhost:8080](http://localhost:8080), cr
 
 ## Build & Deploy Process Application (Eclipse Option)
 
-* Install Eclipse
+* Install [Eclipse IDE For Java Developers - Neon1a](http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/neon1a)
 
 * Install Java 8
 
