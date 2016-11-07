@@ -75,13 +75,13 @@ Ultimately we want to create our own process applications to deploy.  First we s
 
   * Run Menu -> Run Configurations:
 
-<img src="/images/run_configurations_1.png">
+<img src="/images/run_configurations_1.png" style="width: 50%">
 
     * Right Click On Maven and select New
 
   * Configure a deploy build job
 
-<img src="/images/run_configurations_2.png">
+<img src="/images/run_configurations_2.png" style="width: 50%">
 
     1) Name the run Configuration
 
@@ -105,7 +105,7 @@ Ultimately we want to create our own process applications to deploy.  First we s
 
   * Run Build
 
-<img src="/images/run_configurations_3.png">
+<img src="/images/run_configurations_3.png"  style="width: 50%">
 
    * Depending on situation either deploy or redeploy.
 
