@@ -57,7 +57,7 @@ docker run -it --rm \
 
 Confirm Deployment by opening [http://localhost:8080](http://localhost:8080), create user, login, start process.
 
-## Create, Build and Deploy a new process application
+## Create, Build and Deploy an existing process application using Eclipse IDE
 
 Ultimately we want to create our own process applications to deploy.  First we setup our Eclipse IDE and verify correct setup by deploying an existing process application.
 
