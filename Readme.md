@@ -167,9 +167,7 @@ Now you should be able to use the archetypes when creating a new Maven project i
 
 ## Configure Run Configurations
 
-1. Update Project with Tomcat Server Credentials.
-
-Right click on pom.xml and open with Text Editor.  Locate near line 185:
+Update Project with Tomcat Server Credentials.  Right click on pom.xml and open with Text Editor.  Locate near line 185:
 
 ```
 <plugin>
@@ -198,7 +196,7 @@ Replace the above exposed username and password with a reference to the TomcatSe
 </plugin>
 ```
 
-2. Create deploy and redeploy run configurations
+Create deploy and redeploy run configurations
 
 The previous instructions **create deploy & redeploy run configurations** used the ${project_loc} variable for the base directory - so you can use those same run configurations for this newly created project.  Unless previously completed, do that now.
 
