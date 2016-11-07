@@ -141,24 +141,24 @@ Camunda provides [Maven Project Templates (Archetypes)](https://docs.camunda.org
 ## Add Camunda Project Template Catalog to Eclipse
 
 1. Go to **Preferences -> Maven -> Archetypes -> Add Remote Catalog**
-< img src="/images/eclipse-00-preferences-maven-archetypes.png" title="Eclipse Preferences: Maven Archetypes" >
+<img src="/images/eclipse-00-preferences-maven-archetypes.png" title="Eclipse Preferences: Maven Archetypes" >
 2. Enter the following URL and description, click on **Verify...** to test the connection and if that worked click on **OK** to save the catalog.
 
     Catalog File: **https://app.camunda.com/nexus/content/repositories/camunda-bpm/**
 
     Description: **camunda BPM platform**
 
-< img src="/images/eclipse-01-add-remote-archetype-catalog.png" title="Eclipse Preferences: Add Maven Archetype Catalog" >
+<img src="/images/eclipse-01-add-remote-archetype-catalog.png" title="Eclipse Preferences: Add Maven Archetype Catalog" >
 
 ## Create a Process Application Using Template
 
 Now you should be able to use the archetypes when creating a new Maven project in Eclipse:
 
 1. Go to **File -> New -> Project...** and select **Maven -> Maven Project**
-< img src="/images/eclipse-02-create-maven-project.png" title="Create new Maven project" >
+<img src="/images/eclipse-02-create-maven-project.png" title="Create new Maven project" >
 2. Select a location for the project or just keep the default setting.
-< img src="/images/eclipse-03-select-maven-project-location.png" title="Eclipse: Select Maven project location" >
+<img src="/images/eclipse-03-select-maven-project-location.png" title="Eclipse: Select Maven project location" >
 3. Select the archetype from the catalog that you created before.
-< img src="/images/eclipse-04-select-archetype-from-catalog.png" title="Eclipse: Select Maven archetype from catalog" >
+<img src="/images/eclipse-04-select-archetype-from-catalog.png" title="Eclipse: Select Maven archetype from catalog" >
 4. Specify Maven coordinates and Camunda version and finish the project creation.
-< img src="./images/eclipse-05-specify-maven-coordinates-and-camunda-version.png" title="Eclipse: Specify Maven coordinates and Camunda version" >
+<img src="./images/eclipse-05-specify-maven-coordinates-and-camunda-version.png" title="Eclipse: Specify Maven coordinates and Camunda version" >
