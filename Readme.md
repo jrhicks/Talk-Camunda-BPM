@@ -75,13 +75,11 @@ Ultimately we want to create our own process applications to deploy.  First we s
 
   * Run Menu -> Run Configurations:
 
-    * <img src="/images/run_configurations_1.png" align="left" width="400px  style="clear: both">">
-
     * Right Click On Maven and select New
 
   * Configure a deploy build job
 
-    * <img src="/images/run_configurations_2.png" align="left" width="600px"  style="clear: both">
+<img src="/images/run_configurations_2.png">
 
     1) Name the run Configuration
 
@@ -104,8 +102,6 @@ Ultimately we want to create our own process applications to deploy.  First we s
    * Create another run configuration.  Follow the same steps as build deploy job except name it redeploy and set the goal to: tomcat7:redeploy
 
   * Run Build
-
-   * <img src="/images/run_configurations_3.png" align="left" width="400px" style="clear: both">
 
    * Depending on situation either deploy or redeploy.
 
