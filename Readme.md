@@ -4,15 +4,15 @@
 
 ## Goal
 
-1) Run a Tomcat server which is setup for the [Camunda shared-engine architecture](https://docs.camunda.org/manual/7.4/introduction/architecture/#shared-container-managed-process-engine)
+1) Run a Tomcat Server setup with [Camunda shared-engine architecture](https://docs.camunda.org/manual/7.4/introduction/architecture/#shared-container-managed-process-engine)
 
-2) Build and deploy a process application from the [Maven Archetypes for Process Application (Servlet WAR)](https://docs.camunda.org/manual/7.4/user-guide/process-applications/maven-archetypes/)
+2) Verify Tomcat Server can accept Process Application Deployments
 
-3) Setup a development environment in Eclipse for building and deploying proces applications.
+3) Build & deploy an existing process application with Eclipse IDE.
 
-4) Create
+4) Create, build and deploy a new process application.
 
-## Get Lab Code
+## Setup
 
 This project uses the variable $LAB_HOME to refer to the folder where you've cloned this repo.
 
@@ -30,9 +30,9 @@ git clone https://github.com/jrhicks/camunda-lab-1.git
 This lab requires [docker engine installation](https://docs.docker.com/engine/installation/).
 
 
-## Run Tomcat Server
+## Run a Tomcat Server setup with Camunda shared-engine architecture
 
-Docker is used to build a Tomcat server with system dependencies, general camunda web applications, and configurations useful for this lab.
+Docker is used to build a Tomcat server with system dependencies, some general camunda web applications, and configurations useful for this lab.
 
 ```
 cd tomcat-server
@@ -40,9 +40,9 @@ docker build . -t camunda
 docker run -p 8080:8080 camunda
 ```
 
-## Build & Deploy Process Application (Docker Option)
+## Verify Tomcat Server can accept Process Application Deployments (Using Docker)
 
-Java's build tool Maven is used to install, compile, test and deploy the process application to the Tomcat Server.  Without installing or configuring Java and Mavern on your development machine we can demonstrate this by running the official maven docker image with just a few command line options.  Below is the run command to install, compile, test, and deploy to the Tomcat Server launched above.
+Typically we don't use docker to build and deploy a process application because we can directly deploy from our IDE.  However, since the docker method is very reproducible it serves as a good mechanism to verify the Tomcat Server is setup correctly to accept deployments.
 
 ```
 cd process-maven-projects/monthly-meetup
@@ -57,9 +57,9 @@ docker run -it --rm \
 
 Confirm Deployment by opening [http://localhost:8080](http://localhost:8080), create user, login, start process.
 
-## Build & Deploy Process Application (Eclipse Option)
+## Create, Build and Deploy a new process application
 
-Deploy the monthly-meetup process application using Java and maven installed and the development machine host using the eclipse Integrated Development Environment.
+Ultimately we want to create our own process applications to deploy.  First we setup our Eclipse IDE and verify correct setup by deploying an existing process application.
 
 * Install [Eclipse IDE For Java Developers - Neon1a](http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/neon1a)
 
@@ -75,13 +75,13 @@ Deploy the monthly-meetup process application using Java and maven installed and
 
   * Run Menu -> Run Configurations:
 
-    * <img src="/images/run_configuration_1.png">
+<img src="/images/run_configurations_1.png">
 
     * Right Click On Maven and select New
 
   * Configure a deploy build job
 
-    * <img src="/images/run_configurations_2.png">
+<img src="/images/run_configurations_2.png">
 
     1) Name the run Configuration
 
@@ -103,8 +103,16 @@ Deploy the monthly-meetup process application using Java and maven installed and
 
    * Create another run configuration.  Follow the same steps as build deploy job except name it redeploy and set the goal to: tomcat7:redeploy
 
-  * Deploy
+  * Run Build
 
-   * <img src="/images/run_configurations_2.png">
+<img src="/images/run_configurations_3.png">
 
-   * Depending on whether this is the first or 2nd time you've deployed this app to the Tomcat server either run the deploy or redeploy buid.
+   * Depending on situation either deploy or redeploy.
+
+## Create, Build and Deploy a new process application
+
+<img src="images/overview2.png">
+
+Camunda provides [Maven Project Templates (Archetypes)](https://docs.camunda.org/manual/7.4/user-guide/process-applications/maven-archetypes/) to enable a quick start to developing process applications.
+
+Follow these [detailed instructions](https://docs.camunda.org/manual/7.4/user-guide/process-applications/maven-archetypes/#detailed-instructions) to register camunda's architype repository with eclipse or
