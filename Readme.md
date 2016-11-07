@@ -9,7 +9,9 @@
 ## Summary
 
 1. Clone Lab and Setup
+
 2. Run Tomcat Server
+
 3. Verify Tomcat Server can accept Process Application Deployments
 
 ## Clone Lab and Setup
@@ -63,9 +65,13 @@ Ultimately we want to create our own process applications to deploy.  First we s
 ## Summary
 
 1. Install dependencies
+
 2. Import existing project into Eclipse
+
 3. Update user maven settings with Tomcat Server credentials
+
 4. Create deploy & redeploy run configurations
+
 5. Deploy
 
 ## Install dependencies
@@ -77,23 +83,27 @@ Ultimately we want to create our own process applications to deploy.  First we s
 ## Import existing project into Eclipse
 
 1. Open Eclipse
+
 2. File Menu -> Import -> Maven -> Existing Maven Projects -> Next
 
 ## Create deploy & redeploy run configurations
 
-1. Run Menu -> Run Configurations:
+1. Run Menu -> Run Configurations
+
 2. Right Click On Maven and select New
+
 3. Configure a deploy build job
 
 <table><tr><td>
 <img src="/images/run_configurations_2.png">
 </td><td valign="top">
-1. Name the run Configuration
-2. Click Filesystem and select folder $LABS_HOME/camunda_lab_1/process-maven-projects/monthly-meetup
-3. Set Goals to: tomcat7:deploy
-4. Note the path of user settings.  In later steps we will refer to this as $USER_SETTINGS_PATH
-5. Apply
-6. Close
+<ol>
+<li> Name the run Configuration
+<li> Click Filesystem and select folder $LABS_HOME/camunda_lab_1/process-maven-projects/monthly-meetup
+<li> Set Goals to: tomcat7:deploy
+<li> Note the path of user settings.  In later steps we will refer to this as $USER_SETTINGS_PATH
+<li> Apply
+<li> Close
 </td></tr></table>
 
 4. Configure a redeploy build job.  Repeat previous steps to create a run configuration except name it redeploy and set the goal to: tomcat7:redeploy.
@@ -123,14 +133,18 @@ Camunda provides [Maven Project Templates (Archetypes)](https://docs.camunda.org
 ## Summary
 
 1. Add Camunda Project Template Catalog to Eclipse
+
 2. Create a Process Application Using Template
+
 3. Edit Process using Camunda Modeler
+
 4. Build & Deploy
 
 ## Add Camunda Project Template Catalog to Eclipse
 
 1. Go to **Preferences -> Maven -> Archetypes -> Add Remote Catalog**
 <img src="/images/eclipse-00-preferences-maven-archetypes.png" title="Eclipse Preferences: Maven Archetypes" >
+
 2. Enter the following URL and description, click on **Verify...** to test the connection and if that worked click on **OK** to save the catalog.
 
     Catalog File: **https://app.camunda.com/nexus/content/repositories/camunda-bpm/**
@@ -145,8 +159,11 @@ Now you should be able to use the archetypes when creating a new Maven project i
 
 1. Go to **File -> New -> Project...** and select **Maven -> Maven Project**
 <img src="/images/eclipse-02-create-maven-project.png" title="Create new Maven project" >
+
 2. Select a location for the project or just keep the default setting.
+
 3. Select the archetype from the catalog that you created before.
 <img src="/images/eclipse-04-select-archetype-from-catalog.png" title="Eclipse: Select Maven archetype from catalog" >
+
 4. Specify Maven coordinates and Camunda version and finish the project creation.
 <img src="./images/eclipse-05-specify-maven-coordinates-and-camunda-version.png" title="Eclipse: Specify Maven coordinates and Camunda version" >
