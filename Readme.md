@@ -42,7 +42,7 @@ docker run -p 8080:8080 camunda
 
 ## Verify Tomcat Server can accept Process Application Deployments (Using Docker)
 
-Typically we don't use docker to build and deploy a process application because we can directly deploy from our IDE.  However, since the docker method is very reproducible it serves as a good mechanism to verify the Tomcat Server is setup correctly to accept deployments.
+Docker is not necessary to build and deploy a process application.  However, since the docker method is very reproducible it serves as a good mechanism to verify the Tomcat Server is setup correctly to accept deployments.
 
 ```
 cd process-maven-projects/monthly-meetup
