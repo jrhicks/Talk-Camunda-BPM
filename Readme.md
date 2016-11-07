@@ -46,7 +46,7 @@ docker run -p 8080:8080 camunda
 Docker is not necessary to build and deploy a process application.  However, since the docker method is very reproducible it serves as a good mechanism to verify the Tomcat Server is setup correctly to accept deployments.
 
 ```
-cd process-maven-projects/monthly-meetup
+cd camunda-apps/monthly-meetup
 
 docker run -it --rm \
        -v "$(pwd)":/opt/maven \
@@ -90,23 +90,20 @@ Ultimately we want to create our own process applications to deploy.  First we s
 
 1. Run Menu -> Run Configurations
 
-2. Right Click On Maven and select New
-
-3. Configure a deploy build job
-
 <table><tr><td>
-<img src="/images/run_configurations_2.png">
+<img src="/images/run_configurations_1.png">
 </td><td valign="top">
 <ol>
-<li> Name the run Configuration
-<li> Click Filesystem and select folder $LABS_HOME/camunda_lab_1/process-maven-projects/monthly-meetup
-<li> Set Goals to: tomcat7:deploy
+<li> Right Click On Maven -> New
+<li> Name: deploy
+<li> Base directory: ${project_loc}
+<li> Goals: tomcat7:deploy
 <li> Note the path of user settings.  In later steps we will refer to this as $USER_SETTINGS_PATH
 <li> Apply
 <li> Close
 </td></tr></table>
 
-4. Configure a redeploy build job.  Repeat previous steps to create a run configuration except name it redeploy and set the goal to: tomcat7:redeploy.
+Configure a redeploy build job.  Repeat previous steps to create a run configuration except name it redeploy and set the goal to: tomcat7:redeploy.
 
 ## Update user maven settings
 
@@ -117,7 +114,7 @@ export $USER_SETTINGS_PATH=~/.m2/user_settings.xml
 ```
 
 ```
-cp $LABS_HOME/camunda_lab_1/process-maven-projects/monthly-meetup/settings.xml $USER_SETTINGS_PATH
+cp $LABS_HOME/camunda_lab_1/camunda-apps/monthly-meetup/settings.xml $USER_SETTINGS_PATH
 ```
 
 ## Deploy
@@ -134,11 +131,13 @@ Camunda provides [Maven Project Templates (Archetypes)](https://docs.camunda.org
 
 1. Add Camunda Project Template Catalog to Eclipse
 
-2. Create a Process Application Using Template
+2. Create a Process Application Project Using Template
 
-3. Edit Process using Camunda Modeler
+3. Configure Run Configurations
 
-4. Build & Deploy
+4. Edit Process using Camunda Modeler
+
+5. Build & Deploy
 
 ## Add Camunda Project Template Catalog to Eclipse
 
@@ -153,17 +152,58 @@ Camunda provides [Maven Project Templates (Archetypes)](https://docs.camunda.org
 
 <img src="/images/eclipse-01-add-remote-archetype-catalog.png" title="Eclipse Preferences: Add Maven Archetype Catalog" >
 
-## Create a Process Application Using Template
+## Create a Process Application Project Using Template
 
 Now you should be able to use the archetypes when creating a new Maven project in Eclipse:
 
 1. Go to **File -> New -> Project...** and select **Maven -> Maven Project**
-<img src="/images/eclipse-02-create-maven-project.png" title="Create new Maven project" >
 
 2. Select a location for the project or just keep the default setting.
 
-3. Select the archetype from the catalog that you created before.
-<img src="/images/eclipse-04-select-archetype-from-catalog.png" title="Eclipse: Select Maven archetype from catalog" >
+3. Select the Catatolog you created before, and select the **camunda-archetype-servlet-war**
 
-4. Specify Maven coordinates and Camunda version and finish the project creation.
-<img src="./images/eclipse-05-specify-maven-coordinates-and-camunda-version.png" title="Eclipse: Specify Maven coordinates and Camunda version" >
+4. Specify Archetype parameters and finish
+<img src="images/finish-new-maven-project.png" title="New Maven Project: Specify Archetype Parameters">
+
+## Configure Run Configurations
+
+1. Update Project with Tomcat Server Credentials.
+
+Right click on pom.xml and open with Text Editor.  Locate near line 185:
+
+```
+<plugin>
+  <groupId>org.apache.tomcat.maven</groupId>
+  <artifactId>tomcat7-maven-plugin</artifactId>
+  <version>2.2</version>
+  <configuration>
+    <url>http://localhost:8080/manager/text</url>
+    <username>admin</username>
+    <password>admin</password>
+  </configuration>
+</plugin>
+```
+
+Replace the above exposed username and password with a reference to the TomcatServer whose credentials are located in user_settings.xml
+
+```
+<plugin>
+  <groupId>org.apache.tomcat.maven</groupId>
+  <artifactId>tomcat7-maven-plugin</artifactId>
+  <version>2.2</version>
+  <configuration>
+    <url>http://localhost:8080/manager/text</url>
+    <server>TomcatServer</server>
+  </configuration>
+</plugin>
+```
+
+2. Create deploy and redeploy run configurations
+
+The previous instructions **create deploy & redeploy run configurations** used the ${project_loc} variable for the base directory - so you can use those same run configurations for this newly created project.  Unless previously completed, do that now.
+
+## Edit Process using Camunda Modeler
+
+1. Download camunda modeler
+
+... to be continued
