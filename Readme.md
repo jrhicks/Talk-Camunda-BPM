@@ -70,41 +70,33 @@ Ultimately we want to create our own process applications to deploy.  First we s
 
 ## Install dependencies
 
-* Install [Eclipse IDE For Java Developers - Neon1a](http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/neon1a)
+1. Install [Eclipse IDE For Java Developers - Neon1a](http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/neon1a)
 
-* Install [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+2. Install [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 ## Import existing project into Eclipse
 
-* Open Eclipse
-
-* File Menu -> Import -> Maven -> Existing Maven Projects -> Next
+1. Open Eclipse
+2. File Menu -> Import -> Maven -> Existing Maven Projects -> Next
 
 ## Create deploy & redeploy run configurations
 
-* Run Menu -> Run Configurations:
+1. Run Menu -> Run Configurations:
+2. Right Click On Maven and select New
+3. Configure a deploy build job
 
-* Right Click On Maven and select New
-
-* Configure a deploy build job
-
+<table><tr><td>
 <img src="/images/run_configurations_2.png">
+</td><td valign="top">
+1. Name the run Configuration
+2. Click Filesystem and select folder $LABS_HOME/camunda_lab_1/process-maven-projects/monthly-meetup
+3. Set Goals to: tomcat7:deploy
+4. Note the path of user settings.  In later steps we will refer to this as $USER_SETTINGS_PATH
+5. Apply
+6. Close
+</td></tr></table>
 
-  1) Name the run Configuration
-
-  2) Click Filesystem and select folder $LABS_HOME/camunda_lab_1/process-maven-projects/monthly-meetup
-
-  3) Set Goals to: tomcat7:deploy
-
-  4) Note the path of user settings.  In later steps we will refer to this as $USER_SETTINGS_PATH
-
-  5) Apply
-
-  6) Close
-
-* Configure a redeploy build job.
-
-* Create another run configuration.  Follow the same steps as build deploy job except name it redeploy and set the goal to: tomcat7:redeploy
+4. Configure a redeploy build job.  Repeat previous steps to create a run configuration except name it redeploy and set the goal to: tomcat7:redeploy.
 
 ## Update user maven settings
 
@@ -130,13 +122,10 @@ Camunda provides [Maven Project Templates (Archetypes)](https://docs.camunda.org
 
 ## Summary
 
-1) Add Camunda Project Template Catalog to Eclipse
-
-2) Create a Process Application Using Template
-
-3) Edit Process using Camunda Modeler
-
-4) Build & Deploy
+1. Add Camunda Project Template Catalog to Eclipse
+2. Create a Process Application Using Template
+3. Edit Process using Camunda Modeler
+4. Build & Deploy
 
 ## Add Camunda Project Template Catalog to Eclipse
 
@@ -157,7 +146,6 @@ Now you should be able to use the archetypes when creating a new Maven project i
 1. Go to **File -> New -> Project...** and select **Maven -> Maven Project**
 <img src="/images/eclipse-02-create-maven-project.png" title="Create new Maven project" >
 2. Select a location for the project or just keep the default setting.
-<img src="/images/eclipse-03-select-maven-project-location.png" title="Eclipse: Select Maven project location" >
 3. Select the archetype from the catalog that you created before.
 <img src="/images/eclipse-04-select-archetype-from-catalog.png" title="Eclipse: Select Maven archetype from catalog" >
 4. Specify Maven coordinates and Camunda version and finish the project creation.
