@@ -94,7 +94,7 @@ Ultimately we want to create our own process applications to deploy.  First we s
 
 ## Create deploy & redeploy run configurations
 
-1. Run Menu -> Run Configurations
+1. Right Click on pom.xml -> Run As -> Run Configurations
 
 <table><tr><td>
 <img src="/images/run_configurations_1.png">
