@@ -24,9 +24,6 @@ RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" > /e
 
 ADD tomcat-server /camunda
 
-# add scripts
-ADD bin/* /usr/local/bin/
-
 # add database drivers
 # RUN /usr/local/bin/download-database-drivers.sh "${NEXUS}?r=public&g=org.camunda.bpm&a=camunda-database-settings&v=${VERSION}&p=pom"
 

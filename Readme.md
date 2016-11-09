@@ -16,16 +16,16 @@
 
 ## Clone Lab and Setup
 
-This project uses the variable $LAB_HOME to refer to the folder where you've cloned this repo.
+This project uses the variable $LABS_HOME to refer to the folder where you've cloned this repo.
 
 ```
-export $LAB_HOME=/users/jrhicks/labs
+export LABS_HOME=/users/jrhicks/labs
 ```
 
 Checkout this repo
 
 ```
-cd $LAB_HOME
+cd $LABS_HOME
 git clone https://github.com/jrhicks/camunda-lab-1.git
 ```
 
@@ -80,6 +80,12 @@ Ultimately we want to create our own process applications to deploy.  First we s
 
 2. Install [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
+3. Install Maven
+
+ * [Mac Brew](http://brewformulas.org/Maven) - brew install maven
+
+ * [Manually on Mac, Windows or Linux](https://maven.apache.org/install.html)
+
 ## Import existing project into Eclipse
 
 1. Open Eclipse
@@ -110,7 +116,7 @@ Configure a redeploy build job.  Repeat previous steps to create a run configura
 Copy user_settings.xml into $USER_SETTINGS_PATH
 
 ```
-export $USER_SETTINGS_PATH=~/.m2/user_settings.xml
+export USER_SETTINGS_PATH=~/.m2/user_settings.xml
 ```
 
 ```
@@ -202,6 +208,8 @@ The previous instructions **create deploy & redeploy run configurations** used t
 
 ## Edit Process using Camunda Modeler
 
-1. Download camunda modeler
+1. [Download camunda modeler](https://camunda.org/download/modeler/)
+
+2.  
 
 ... to be continued
