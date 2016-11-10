@@ -90,7 +90,7 @@ Ultimately we want to create our own process applications to deploy.  First we s
 
 1. Open Eclipse
 
-2. File Menu -> Import -> Maven -> Existing Maven Projects -> Next
+2. File Menu -> Import -> Maven -> Existing Maven Projects -> Next -> Select Folder From Cloned Repo -> Open -> Finish
 
 ## Create deploy & redeploy run configurations
 
@@ -116,11 +116,22 @@ Configure a redeploy build job.  Repeat previous steps to create a run configura
 Copy user_settings.xml into $USER_SETTINGS_PATH
 
 ```
-export USER_SETTINGS_PATH=~/.m2/user_settings.xml
+export USER_SETTINGS_PATH=~/.m2/settings.xml
 ```
 
+Edit settings.xml and set its contents:
 ```
-cp $LABS_HOME/camunda_lab_1/camunda-apps/monthly-meetup/settings.xml $USER_SETTINGS_PATH
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <localRepository>/usr/share/maven/ref/repository</localRepository>
+  <servers>
+    <server>
+      <id>TomcatServer</id>
+      <username>admin</username>
+      <password>password</password>
+    </server>
+  </servers>
+</settings>
 ```
 
 ## Deploy
@@ -208,8 +219,16 @@ The previous instructions **create deploy & redeploy run configurations** used t
 
 ## Edit Process using Camunda Modeler
 
-1. [Download camunda modeler](https://camunda.org/download/modeler/)
+Camunda Modeler is open source and extendable.  We will want to learn how to run it from source.
 
-2.  
+```
+git clone https://github.com/bpmn-io/bpmn-js.git
+cd bpmn-js
+npm install
+npm run dev
+```
+
+Now lets learn how to extend camunda with a [batch template](https://github.com/jrhicks/camunda-lab-1/batch.json) as documented here: [Enabling Batch Processing in BPMN Processes
+](https://bpt.hpi.uni-potsdam.de/Public/BatchProcessing)
 
 ... to be continued

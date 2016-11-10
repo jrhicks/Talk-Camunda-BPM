@@ -1,0 +1,61 @@
+[
+  {
+    "name": "Batch Region Template",
+    "id": "batch",
+    "appliesTo": [
+      "bpmn:SubProcess"
+    ],
+    "properties": [
+      {
+        "label": "Batch Region Id",
+        "type": "String",
+        "editable": true,
+        "binding": {"type": "camunda:property","name": "batchRegion"}
+		"constraints": {
+		  "notEmpty": true
+		}
+      },
+	  {
+        "label": "Grouping Characteristic",
+		"description": "A set of process variables (seperated by a semicolon) to group instances.",
+        "type": "Text",
+        "editable": true,
+        "binding": {"type": "camunda:property","name": "groupingChar"}
+      },
+	  {
+        "label": "Activation Rule",
+        "type": "String",
+		"value": "ThresholdRule",
+        "editable": false,
+		"binding": {"type": "camunda:property","name": "activationRule"}
+      },
+	  {
+        "label": "Threshold",
+		"description": "Minimum number of instances to activate a batch.",
+        "type": "String",
+        "editable": true,
+        "binding": {"type": "camunda:property","name": "threshold"},
+		"constraints": {
+		  "notEmpty": true
+		}
+      },
+	  {
+        "label": "Time-out in Minutes",
+		"description": "Maximum waiting time to activate a batch.",
+        "type": "String",
+        "editable": true,
+        "binding": {"type": "camunda:property","name": "timeout"},
+		"constraints": {
+		  "notEmpty": true
+		}
+      },
+	  {
+        "label": "Maximal Batch Size",
+		"description": "Maximum number of instances being allowed in a batch.",
+        "type": "String",
+        "editable": true,
+        "binding": {"type": "camunda:property","name": "maxCapacity"}
+      }
+    ]
+  }
+]
