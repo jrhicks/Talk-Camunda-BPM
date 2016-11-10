@@ -123,7 +123,6 @@ Edit settings.xml and set its contents:
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
-  <localRepository>/usr/share/maven/ref/repository</localRepository>
   <servers>
     <server>
       <id>TomcatServer</id>
