@@ -216,18 +216,37 @@ Create deploy and redeploy run configurations
 
 The previous instructions **create deploy & redeploy run configurations** used the ${project_loc} variable for the base directory - so you can use those same run configurations for this newly created project.  Unless previously completed, do that now.
 
-## Edit Process using Camunda Modeler
+# Run Camunda Modeler
+
+Summary
+
+1. Run Camunda Modeler From Source
+
+2. Extend Camunda with custom element: Batch Region
+
+## Run Camunda Modeler From Source
 
 Camunda Modeler is open source and extendable.  We will want to learn how to run it from source.
 
 ```
-git clone https://github.com/bpmn-io/bpmn-js.git
-cd bpmn-js
+git clone https://github.com/camunda/camunda-modeler.git
+cd camunda-modeler
 npm install
+npm install wiredeps
+node_modules/.bin/wiredeps
 npm run dev
 ```
 
-Now lets learn how to extend camunda with a [batch template](https://github.com/jrhicks/camunda-lab-1/batch.json) as documented here: [Enabling Batch Processing in BPMN Processes
-](https://bpt.hpi.uni-potsdam.de/Public/BatchProcessing)
+## Extend Camunda with custom element: Batch Region
+
+An important extension to camunda for my team is the ability to batch items such that activities performed to the user apply to all the batched instances.
+
+Batch processing resources:
+
+* [Enabling Batch Processing in BPMN Processes](https://bpt.hpi.uni-potsdam.de/Public/BatchProcessing)
+
+* [Efficient bundling of similar activities – Batch Processing with Camunda](https://blog.camunda.org/post/2016/10/batch-processing-with-camunda/) -  Camunda Team Blog, Oct 11, 2016
+
+* [Batch Region Element Template](https://raw.githubusercontent.com/jrhicks/camunda-lab-1/master/batch.json)
 
 ... to be continued
